@@ -25,6 +25,8 @@ Munin has not run yet.  Please try again in a few moments.
 </body>
 </html>
 EOF
+chown munin:munin /var/cache/munin/www/index.html
+chmod g+w /var/cache/munin/www/index.html
 
 # start cron
 /usr/sbin/cron &
