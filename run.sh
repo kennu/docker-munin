@@ -31,7 +31,7 @@ chmod g+w /var/cache/munin/www/index.html
 fi
 
 # start rsyslogd
-#/usr/sbin/rsyslogd
+/usr/sbin/rsyslogd
 # start cron
 /usr/sbin/cron
 # start local munin-node
@@ -39,4 +39,7 @@ fi
 echo "Using the following munin nodes:"
 echo $NODES
 # start apache
-/usr/sbin/apache2ctl -DFOREGROUND
+/usr/sbin/apache2ctl start
+# show logs
+echo 'Tailing /var/log/syslog...'
+tail -f /var/log/syslog /var/log/munin/munin-update.log
